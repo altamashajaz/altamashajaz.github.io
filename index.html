@@ -23,8 +23,94 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
-	  
+	<style>
+
+		/*======================================
+		//--//-->   ABOUT
+		======================================*/
+		
+		.about-mf .box-shadow-full {
+		  padding-top: 4rem;
+		  padding-bottom: 4rem;
+		}
+		
+		.about-mf .about-img {
+		  margin-bottom: 2rem;
+		}
+		
+		.about-mf .about-img img {
+		  margin-left: 10px;
+		}
+		
+		
+		.skill-mf .progress {
+		  /* background-color: #cde1f8; */
+		  margin: .5rem 0 1.2rem 0;
+		  border-radius: 0;
+		  height: .7rem;
+		}
+		
+		.skill-mf .progress .progress-bar {
+		  height: .7rem;
+		  background-color: #ffbd39;
+		}
+		
+		
+		/* Animation styles */
+		#typing-animation {
+		  position: relative;
+		  font-size: 30px;
+		  font-weight: bold;
+		  color: rgb(255, 255, 255);
+		  overflow: hidden;
+		  white-space: nowrap;
+		  animation: typing 3s steps(20, end) infinite;
+		}
+		
+		#typing-animation:before {
+		  content: "";
+		  /* position: absolute; */
+		  top: 0;
+		  left: 0;
+		  width: 0;
+		  height: 100%;
+		  background-color: #ccc;
+		  animation: typing-cursor 0.5s ease-in-out infinite;
+		}
+		
+		@keyframes typing {
+		  from {
+			width: 0;
+		  }
+		  to {
+			width: 100%;
+		  }
+		}
+		
+		@keyframes typing-cursor {
+		  from {
+			width: 5px;
+		  }
+		  to {
+			width: 0;
+		  }
+		}
+		
+		
+		/* project image zoom effect */
+		
+		.zoom-effect {
+		  overflow: hidden;
+		  transition: transform 0.3s ease-out;
+		}
+		
+		.zoom-effect:hover {
+		  transform: scale(1.1);
+		}
+		
+		
+		</style>
+			  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">Altamash</a>
@@ -45,45 +131,60 @@
 	    </div>
 	  </nav>
 	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	      <div class="slider-item ">
-	      	<div class="overlay"></div>
-	        <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images\bg_2.png);">
-	          		<div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-						<h2 class="mb-4"><span>Hello 👋</span></h2>
-			            <h1 class="mb-4 mt-3">I'm <span>Altamash Ajaz</span></h1>
-			            <h2 class="mb-4">Data Scientist</h2>
-			            <p><a href="https://github.com/altamashajaz" target="_blank" class="btn btn-primary py-3 px-4">My Works</a></p>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
-
-	      <div class="slider-item">
-	      	<div class="overlay"></div>
-	        <div class="container">
-	          <div class="row d-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images\bg_2.png);">
-	          		<div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-						<h2 class="mb-4"><span>Hello 👋</span></h2>
-			            <h1 class="mb-4 mt-3">I'm a <span>Data Scientist</span> based in Bangalore</h1>
-			            <p><a href="https://github.com/altamashajaz" target="_blank" class="btn btn-primary py-3 px-4">My Works</a></p>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
-	    </div>
-    </section>
+		<div class="home-slider  owl-carousel">
+		 <div class="slider-item ">
+			<div class="overlay"></div>
+		   <div class="container">
+			<div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+				<!-- <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png);">
+				 <div class="overlay"></div>
+				</div> -->
+				<div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+					<div class="text">
+					<h2 class="mb-4"><span>Hello 👋</span></h2>
+					<h1 class="mb-4 mt-3">I'm <span>Altamash Ajaz</span></h1>
+					<!-- Element to contain animated typing -->
+					<span id="typing-animation"></span>
+	  
+					<script>
+					  // Initialize the typing animation
+					  const typingAnimationElement = document.getElementById('typing-animation');
+	  
+					  // Create an array of typing text
+					  const typingTexts = [
+						'Data Scientist  ',
+						'Based in Bangalore   ',
+					  ];
+	  
+					  // Create a function to display the typing animation for a given text
+					  function playTypingAnimation(text) {
+						// Loop through each character and add it to the element
+						for (let i = 0; i < text.length; i++) {
+						  setTimeout(() => {
+							typingAnimationElement.textContent += text[i];
+						  }, i * 200); // Increase the delay to slow down the typing animation
+						}
+	  
+						// Once the animation is complete, reset the text and start over
+						setTimeout(() => {
+						  typingAnimationElement.textContent = '';
+						  playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+						}, text.length * 200);
+					  }
+	  
+					  // Start the typing animation loop
+					  playTypingAnimation(typingTexts[0]);
+					</script>
+	  				<br>
+					<br>
+					<p><a href="https://github.com/altamashajaz" target="_blank" class="btn btn-primary py-3 px-4">My Works</a></p>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </section>	  
 
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
     	<div class="container">
