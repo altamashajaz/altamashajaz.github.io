@@ -8394,6 +8394,28 @@ h1, h2, h3, h4, h5,
   font-weight: 900;
   font-size: 24px;
   text-transform: uppercase; }
+  .hero {
+    margin: 0;
+    padding: 18px;
+    height: 90vh; /* Adjust the height to fill the viewport */
+    overflow: hidden; /* Prevent overflow issues */
+  }
+  
+  .home-slider {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .one-forth {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ensure full height */
+  }
+  
+  .text {
+    position: relative;
+    z-index: 2; /* Ensure the text is above other elements */
+  }
 
 .hero h3.vr {
   -webkit-writing-mode: vertical-lr;
@@ -8404,8 +8426,7 @@ h1, h2, h3, h4, h5,
   transform: rotate(180deg);
   text-orientation: sideways;
   text-align: center;
-  text-orientation: sideways;
-  margin: 0rem;
+  margin: 0;
   position: absolute;
   top: 0;
   left: 4em;
@@ -8415,11 +8436,15 @@ h1, h2, h3, h4, h5,
   letter-spacing: 5px;
   font-size: 16px;
   z-index: 1;
-  color: rgba(0, 0, 0, 0.3); }
-  @media (max-width: 1199.98px) {
-    .hero h3.vr {
-      opacity: 0;
-      display: none; } }
+  color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1199.98px) {
+  .hero h3.vr {
+    opacity: 0;
+    display: none;
+  }
+}
 
 .owl-carousel {
   position: relative; }
